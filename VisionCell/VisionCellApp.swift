@@ -9,10 +9,15 @@ import SwiftUI
 
 @main
 struct VisionCellApp: App {
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onAppear {
+                    SoundManager.playInstance.playBackground()
+                }
         }
         .windowStyle(.volumetric)
+//        .defaultSize(width: 1, height: 1.5, depth: 1, in: .meters)
     }
 }
