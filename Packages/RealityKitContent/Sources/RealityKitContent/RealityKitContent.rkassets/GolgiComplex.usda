@@ -1,0 +1,201 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.0.16.0.3)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    def "Golgi_ApparatusComplex" (
+        active = true
+        references = @Golgi_ApparatusComplex.usdz@
+    )
+    {
+        float3 xformOp:scale = (0.01, 0.01, 0.01)
+        float3 xformOp:translate = (0, 0.09499943, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Materials"
+        {
+            over "material"
+            {
+                token inputs:frame:stPrimvarName = "st" (
+                    customData = {
+                        dictionary realitykit = {
+                            bool hide = 1
+                        }
+                    }
+                )
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+
+                over "pbr_shader"
+                {
+                    color3f inputs:diffuseColor = (0, 0.2190319, 0.07985471) (
+                        colorSpace = "srgb_displayp3"
+                    )
+                    float inputs:roughness.connect = </Root/Golgi_ApparatusComplex/Materials/material/roughness.outputs:r>
+                }
+
+                def Shader "roughness"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file = @textures/4K-brown_sand_plaster-diffuse.jpg@
+                    float2 inputs:st.connect = </Root/Golgi_ApparatusComplex/Materials/material/roughness/TexCoordReader.outputs:result>
+                    float outputs:r
+
+                    def Shader "TexCoordReader"
+                    {
+                        uniform token info:id = "UsdPrimvarReader_float2"
+                        token inputs:varname.connect = </Root/Golgi_ApparatusComplex/Materials/material.inputs:frame:stPrimvarName>
+                        float2 outputs:result
+                    }
+                }
+            }
+
+            over "vesicles"
+            {
+                token inputs:frame:stPrimvarName = "st" (
+                    customData = {
+                        dictionary realitykit = {
+                            bool hide = 1
+                        }
+                    }
+                )
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+
+                over "pbr_shader"
+                {
+                    color3f inputs:diffuseColor = (0.0002681217, 0.35736147, 0.22063804) (
+                        colorSpace = "srgb_displayp3"
+                    )
+                    float inputs:roughness.connect = </Root/Golgi_ApparatusComplex/Materials/vesicles/roughness.outputs:r>
+                }
+
+                def Shader "roughness"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file = @textures/4K-brown_sand_plaster-normal.jpg@
+                    float2 inputs:st.connect = </Root/Golgi_ApparatusComplex/Materials/vesicles/roughness/TexCoordReader.outputs:result>
+                    float outputs:r
+
+                    def Shader "TexCoordReader"
+                    {
+                        uniform token info:id = "UsdPrimvarReader_float2"
+                        token inputs:varname.connect = </Root/Golgi_ApparatusComplex/Materials/vesicles.inputs:frame:stPrimvarName>
+                        float2 outputs:result
+                    }
+                }
+            }
+        }
+
+        def RealityKitComponent "AudioLibrary"
+        {
+            uniform token info:id = "RealityKit.AudioLibrary"
+
+            def RealityKitDict "resources"
+            {
+                string[] keys = ["golgiComplex.mp3"]
+                rel values = </Root/golgiComplex_mp3>
+            }
+        }
+    }
+
+    def RealityKitTimeline "AnimationGolgiComplex"
+    {
+        reorder nameChildren = ["Track", "Track2"]
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Spin"
+            {
+                string actionKind = "spin"
+                int blendLayer = 100
+                double duration = 2
+                uniform token info:id = "7BB6F830-FA8F-4513-88B4-1DAA7216D673"
+                float revolutions = 0.03
+                token spinDirection = "counterclockwise"
+                double startTime = 0
+                rel target = </Root/Golgi_ApparatusComplex>
+
+                def RealityKitStruct "timingFunction"
+                {
+                    token type = "easeIn"
+                }
+            }
+
+            def RealityKitAction "Spin2"
+            {
+                string actionKind = "spin"
+                int blendLayer = 100
+                double duration = 2
+                uniform token info:id = "7BB6F830-FA8F-4513-88B4-1DAA7216D673"
+                float revolutions = 0.03
+                token spinDirection = "clockwise"
+                double startTime = 2
+                rel target = </Root/Golgi_ApparatusComplex>
+                float2 ui:nodegraph:node:pos = (20, 20)
+                int ui:nodegraph:node:stackingOrder = 1
+
+                def RealityKitStruct "timingFunction"
+                {
+                    token type = "easeOut"
+                }
+            }
+
+            def RealityKitAction "Spin3"
+            {
+                string actionKind = "spin"
+                int blendLayer = 100
+                double duration = 2
+                uniform token info:id = "7BB6F830-FA8F-4513-88B4-1DAA7216D673"
+                float revolutions = 0.03
+                token spinDirection = "counterclockwise"
+                double startTime = 4.0000000001
+                rel target = </Root/Golgi_ApparatusComplex>
+                float2 ui:nodegraph:node:pos = (20, 20)
+                int ui:nodegraph:node:stackingOrder = 1
+
+                def RealityKitStruct "timingFunction"
+                {
+                    token type = "easeIn"
+                }
+            }
+        }
+
+        def RealityKitTrack "Track2"
+        {
+            def RealityKitAction "Play_Audio"
+            {
+                string actionKind = "audio"
+                string audioResourceName = "golgiComplex.mp3"
+                bool controlPlayback = 1
+                double duration = 6
+                uniform token info:id = "50DB92D2-24BF-4FA8-B050-AA765C1903E4"
+                double startTime = 0
+                rel target = </Root/Golgi_ApparatusComplex>
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+        }
+    }
+
+    def RealityKitAudioFile "bubbles_14830_mp3"
+    {
+        uniform asset file = @bubbles-14830.mp3@
+        uniform bool shouldLoop = 0
+    }
+
+    def RealityKitAudioFile "golgiComplex_mp3"
+    {
+        uniform asset file = @sons/golgiComplex.mp3@
+        uniform bool shouldLoop = 0
+    }
+}
+

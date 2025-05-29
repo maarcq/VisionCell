@@ -1,0 +1,116 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.0.16.0.3)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    def "Vacuole" (
+        active = true
+        references = @Vacuole.usdz@
+    )
+    {
+        float3 xformOp:scale = (0.01, 0.01, 0.01)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Materials"
+        {
+            over "Vacuole"
+            {
+                token inputs:frame:stPrimvarName = "st" (
+                    customData = {
+                        dictionary realitykit = {
+                            bool hide = 1
+                        }
+                    }
+                )
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+
+                over "pbr_shader"
+                {
+                    color3f inputs:diffuseColor = (0.08918125, 0.39689288, 0.6407458) (
+                        colorSpace = "srgb_displayp3"
+                    )
+                    delete color3f inputs:diffuseColor.connect = </Root/Vacuole/Materials/Vacuole/tex_base.outputs:rgb>
+                    delete normal3f inputs:normal.connect = </Root/Vacuole/Materials/Vacuole/tex_normal.outputs:rgb>
+                    float inputs:roughness.connect = </Root/Vacuole/Materials/Vacuole/roughness.outputs:r>
+                }
+
+                def Shader "roughness"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file = @textures/4K-brown_sand_plaster-diffuse.jpg@
+                    float2 inputs:st.connect = </Root/Vacuole/Materials/Vacuole/roughness/TexCoordReader.outputs:result>
+                    float outputs:r
+
+                    def Shader "TexCoordReader"
+                    {
+                        uniform token info:id = "UsdPrimvarReader_float2"
+                        token inputs:varname.connect = </Root/Vacuole/Materials/Vacuole.inputs:frame:stPrimvarName>
+                        float2 outputs:result
+                    }
+                }
+            }
+        }
+
+        def RealityKitComponent "AudioLibrary"
+        {
+            uniform token info:id = "RealityKit.AudioLibrary"
+
+            def RealityKitDict "resources"
+            {
+                string[] keys = ["watery-whoosh-fizzy-slow-228317.mp3"]
+                rel values = </Root/watery_whoosh_fizzy_slow_228317_mp3>
+            }
+        }
+    }
+
+    def RealityKitTimeline "Timeline"
+    {
+        reorder nameChildren = ["Track", "Track2", "Track3"]
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Emphasize"
+            {
+                string actionKind = "emphasize"
+                int blendLayer = 1000
+                double duration = 2.5
+                uniform token info:id = "86A04B8C-32C6-446C-8AA1-2E7E626AB03E"
+                token motionType = "flip"
+                double startTime = 0
+                rel target = </Root/Vacuole>
+            }
+        }
+
+        def RealityKitTrack "Track3"
+        {
+            def RealityKitAction "Play_Audio"
+            {
+                string actionKind = "audio"
+                string audioResourceName = "watery-whoosh-fizzy-slow-228317.mp3"
+                bool controlPlayback = 1
+                double duration = 2.5
+                uniform token info:id = "5BCDC486-6A58-4A24-AAA7-E6C5A5351340"
+                double startTime = 0
+                rel target = </Root/Vacuole>
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+        }
+    }
+
+    def RealityKitAudioFile "watery_whoosh_fizzy_slow_228317_mp3"
+    {
+        uniform asset file = @sons/watery-whoosh-fizzy-slow-228317.mp3@
+        uniform bool shouldLoop = 0
+    }
+}
+

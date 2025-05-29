@@ -17,7 +17,49 @@ struct ContentView: View {
         VStack {
             RealityView { content in
                 // Add the initial RealityKit content
-                if let scene = try? await Entity(named: "Scene", in: realityKitContentBundle) {
+//                let boxSize = SIMD3<Float>(0.5, 0.1, 0.05)
+//
+//
+//                let modelComponent = ModelComponent(
+//                    mesh: MeshResource.generateBox(size: boxSize),
+//                    materials: [SimpleMaterial(color: .black, roughness: 0.5, isMetallic: false)]
+//                )
+//                let collisionComponent = CollisionComponent(
+//                    shapes: [ShapeResource.generateBox(size: boxSize)]
+//                )
+//                let inputTargetComponent = InputTargetComponent()
+//                let hoverEffectComponent = HoverEffectComponent(.spotlight(
+//                    HoverEffectComponent.SpotlightHoverEffectStyle(
+//                        color: .green, strength: 2.0
+//                    )
+//                ))
+//
+//
+//                let entityA = Entity()
+//                entityA.components.set([modelComponent, collisionComponent, inputTargetComponent, hoverEffectComponent])
+//                content.add(entityA)
+                
+                if let scene = try? await Entity(named: "Cell", in: realityKitContentBundle) {
+                    let group = scene.children[0].children.first {
+                        $0.name == "Group"
+                    }
+                    if let group {
+                        for child in group.children {
+                            print(child.name)
+                            if child.name == "reticuloEndoplasmaticoRugoso" {
+                                let hoverComponent = HoverEffectComponent()
+                                child.components.set(hoverComponent)
+                            }
+                        }
+                    }
+                    
+//                    let inputTargetComponent = InputTargetComponent()
+//                    let hoverComponent = HoverEffectComponent(.spotlight(
+//                        HoverEffectComponent.SpotlightHoverEffectStyle(
+//                            color: .green, strength: 2.0
+//                        )
+//                    ))
+//                    scene.components.set([inputTargetComponent, hoverComponent])
                     content.add(scene)
                 }
             } update: { content in
@@ -27,8 +69,8 @@ struct ContentView: View {
                     scene.transform.scale = [uniformScale, uniformScale, uniformScale]
                 }
             }
-            .gesture(TapGesture().targetedToAnyEntity().onEnded { _ in
-                enlarge.toggle()
+            .gesture(TapGesture().targetedToAnyEntity().onEnded { value in
+                print(value.entity.name)
             })
 
             VStack {

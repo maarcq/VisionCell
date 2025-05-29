@@ -1,0 +1,170 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.0.16.0.3)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    reorder nameChildren = ["SkySphere", "lysosome", "Timeline"]
+    def "lysosome" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707964, 0, 0)
+        }
+        references = @lysosome.usdc@
+    )
+    {
+        quatf xformOp:orient = (0.70710677, -0.70710677, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (0.064172335, 0.1924774, 1.4901161e-8)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "_materials"
+        {
+            over "Material_019"
+            {
+                token inputs:frame:stPrimvarName = "st" (
+                    customData = {
+                        dictionary realitykit = {
+                            bool hide = 1
+                        }
+                    }
+                )
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+
+                def Shader "roughness"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file = @textures/4K-brown_sand_plaster-diffuse.jpg@
+                    float2 inputs:st.connect = </Root/lysosome/_materials/Material_019/roughness/TexCoordReader.outputs:result>
+                    float outputs:r
+
+                    def Shader "TexCoordReader"
+                    {
+                        uniform token info:id = "UsdPrimvarReader_float2"
+                        token inputs:varname.connect = </Root/lysosome/_materials/Material_019.inputs:frame:stPrimvarName>
+                        float2 outputs:result
+                    }
+                }
+
+                over "Principled_BSDF"
+                {
+                    float inputs:roughness.connect = </Root/lysosome/_materials/Material_019/roughness.outputs:r>
+                }
+            }
+
+            over "Material_026"
+            {
+                token inputs:frame:stPrimvarName = "st" (
+                    customData = {
+                        dictionary realitykit = {
+                            bool hide = 1
+                        }
+                    }
+                )
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+
+                def Shader "roughness"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file = @textures/color_121212.hdr@
+                    float2 inputs:st.connect = </Root/lysosome/_materials/Material_026/roughness/TexCoordReader.outputs:result>
+                    float outputs:r
+
+                    def Shader "TexCoordReader"
+                    {
+                        uniform token info:id = "UsdPrimvarReader_float2"
+                        token inputs:varname.connect = </Root/lysosome/_materials/Material_026.inputs:frame:stPrimvarName>
+                        float2 outputs:result
+                    }
+                }
+
+                over "Principled_BSDF"
+                {
+                    float inputs:roughness.connect = </Root/lysosome/_materials/Material_026/roughness.outputs:r>
+                }
+            }
+        }
+
+        def RealityKitComponent "AudioLibrary"
+        {
+            uniform token info:id = "RealityKit.AudioLibrary"
+
+            def RealityKitDict "resources"
+            {
+                string[] keys = ["lysosome.mp3"]
+                rel values = </Root/lysosome_mp3>
+            }
+        }
+    }
+
+    def RealityKitTimeline "Timeline"
+    {
+        reorder nameChildren = ["Track", "Track3", "Track2"]
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Emphasize"
+            {
+                string actionKind = "emphasize"
+                int blendLayer = 1000
+                double duration = 4
+                uniform token info:id = "812E09EA-E5A8-4B5E-B78E-5D294374892E"
+                token motionType = "jiggle"
+                double startTime = 0
+                token style = "basic"
+                rel target = </Root/lysosome>
+            }
+        }
+
+        def RealityKitTrack "Track3"
+        {
+            def RealityKitAction "Play_Audio"
+            {
+                string actionKind = "audio"
+                string audioResourceName = "lysosome.mp3"
+                bool controlPlayback = 1
+                double duration = 2
+                uniform token info:id = "8AC9D488-2480-428C-8B6F-F9C13741FAF7"
+                bool isActive = 1
+                double startTime = 0
+                rel target = </Root/lysosome>
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+
+            def RealityKitAction "Play_Audio2"
+            {
+                string actionKind = "audio"
+                string audioResourceName = "lysosome.mp3"
+                bool controlPlayback = 1
+                double duration = 2
+                uniform token info:id = "8AC9D488-2480-428C-8B6F-F9C13741FAF7"
+                bool isActive = 1
+                double startTime = 2.0000000000999996
+                rel target = </Root/lysosome>
+                float2 ui:nodegraph:node:pos = (20, 20)
+                int ui:nodegraph:node:stackingOrder = 1
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+        }
+    }
+
+    def RealityKitAudioFile "lysosome_mp3"
+    {
+        uniform asset file = @sons/lysosome.mp3@
+        uniform bool shouldLoop = 0
+    }
+}
+

@@ -1,8 +1,18 @@
 {
   "pathsToIds" : {
-    "\/RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/GridMaterial.usda" : "70F99620-18FE-438F-B2D5-5E0DA02AB759",
-    "\/RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Scene.usda" : "0A9B4653-B11E-4D6A-850E-C6FCB621626C",
-    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/GridMaterial.usda" : "388995CA-80FC-432E-BA88-78270E4EFD9D",
-    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Scene.usda" : "90C576A0-F90A-43B8-9998-14918A66F863"
+    "ChallengeVisionPro\/Sources\/ChallengeVisionPro\/ChallengeVisionPro.rkassets\/Cell.usda" : "F2EEA573-EBC8-422F-8712-0A935BB820C7",
+    "ChallengeVisionPro\/Sources\/ChallengeVisionPro\/ChallengeVisionPro.rkassets\/Centrioles.usda" : "FE11DB23-042E-4E5D-8661-F3AA2A2C7CB0",
+    "ChallengeVisionPro\/Sources\/ChallengeVisionPro\/ChallengeVisionPro.rkassets\/GolgiComplex.usda" : "BED8F761-560A-4C93-9282-9193D81F98DA",
+    "ChallengeVisionPro\/Sources\/ChallengeVisionPro\/ChallengeVisionPro.rkassets\/Lysosome.usda" : "B1CDA96C-D360-473A-9D1F-343B34EA9EE4",
+    "ChallengeVisionPro\/Sources\/ChallengeVisionPro\/ChallengeVisionPro.rkassets\/Scene.usda" : "1552AEC4-8EC1-4065-9565-D91E46E93001",
+    "ChallengeVisionPro\/Sources\/ChallengeVisionPro\/ChallengeVisionPro.rkassets\/Vacuole.usda" : "DD5F931A-A8B8-4648-A04C-7632448D7C60",
+    "ChallengeVisionPro\/Sources\/ChallengeVisionPro\/ChallengeVisionPro.rkassets\/golgiComplex.usdc" : "740082B6-96C5-49D8-931E-1534820938FD",
+    "ChallengeVisionPro\/Sources\/ChallengeVisionPro\/ChallengeVisionPro.rkassets\/lysosomeCerto.usda" : "B37D3AF7-87A2-434B-9A4A-AA7DFF49F0B3",
+    "ChallengeVisionPro\/Sources\/ChallengeVisionPro\/ChallengeVisionPro.rkassets\/lysosomes.usda" : "1CD7CC63-7163-4BD2-BC2A-5F8C886D288D",
+    "ChallengeVisionPro\/Sources\/ChallengeVisionPro\/ChallengeVisionPro.rkassets\/microtubulos.usda" : "E2317188-AAD5-493A-A466-E953769B82BC",
+    "ChallengeVisionPro\/Sources\/ChallengeVisionPro\/ChallengeVisionPro.rkassets\/nucleorapha.usda" : "C79D5D07-BC8C-4B9A-BEE7-C88E59FBD034",
+    "ChallengeVisionPro\/Sources\/ChallengeVisionPro\/ChallengeVisionPro.rkassets\/nucleus.usda" : "9B36B8E3-F414-4501-9C9D-E111D25E637A",
+    "ChallengeVisionPro\/Sources\/ChallengeVisionPro\/ChallengeVisionPro.rkassets\/teste.usda" : "059A1C85-ECC8-4985-B0FB-673108E24419",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Cell.usda" : "14A36001-1485-440A-8ED5-F7E534595EBC"
   }
 }

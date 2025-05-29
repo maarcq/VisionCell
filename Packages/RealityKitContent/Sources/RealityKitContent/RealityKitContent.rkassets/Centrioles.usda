@@ -1,0 +1,144 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.0.16.0.3)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    def "Microtubule" (
+        active = true
+        references = @Microtubule.usdz@
+    )
+    {
+        float3 xformOp:scale = (0.01, 0.01, 0.01)
+        float3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Materials"
+        {
+            over "Scene___Root"
+            {
+                token inputs:frame:stPrimvarName = "st" (
+                    customData = {
+                        dictionary realitykit = {
+                            bool hide = 1
+                        }
+                    }
+                )
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+
+                over "pbr_shader"
+                {
+                    color3f inputs:diffuseColor = (0.6634987, 0.5177281, 0.09791709) (
+                        colorSpace = "srgb_displayp3"
+                    )
+                    float inputs:roughness.connect = </Root/Microtubule/Materials/Scene___Root/roughness.outputs:r>
+                }
+
+                def Shader "roughness"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file = @textures/4K-brown_sand_plaster-diffuse.jpg@
+                    float2 inputs:st.connect = </Root/Microtubule/Materials/Scene___Root/roughness/TexCoordReader.outputs:result>
+                    float outputs:r
+
+                    def Shader "TexCoordReader"
+                    {
+                        uniform token info:id = "UsdPrimvarReader_float2"
+                        token inputs:varname.connect = </Root/Microtubule/Materials/Scene___Root.inputs:frame:stPrimvarName>
+                        float2 outputs:result
+                    }
+                }
+            }
+        }
+
+        def RealityKitComponent "AudioLibrary"
+        {
+            uniform token info:id = "RealityKit.AudioLibrary"
+
+            def RealityKitDict "resources"
+            {
+                string[] keys = ["centrioles.mp3"]
+                rel values = </Root/centrioles_mp3>
+            }
+        }
+    }
+
+    def RealityKitTimeline "Timeline"
+    {
+        reorder nameChildren = ["Track", "Track2", "Track3"]
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Spin"
+            {
+                string actionKind = "spin"
+                int blendLayer = 600
+                double duration = 6
+                uniform token info:id = "CB92F98F-1FF2-4D7D-BBDF-4A1BB883B4E2"
+                float3 localAxis = (0, 0, 1)
+                float revolutions = 0.8
+                double startTime = 0
+                rel target = </Root/Microtubule>
+
+                def RealityKitStruct "timingFunction"
+                {
+                    token type = "easeIn"
+                }
+            }
+        }
+
+        def RealityKitTrack "Track3"
+        {
+            def RealityKitAction "Play_Audio"
+            {
+                string actionKind = "audio"
+                string audioResourceName = "centrioles.mp3"
+                bool controlPlayback = 1
+                double duration = 6
+                uniform token info:id = "2DEABBA3-29DE-4CE3-8D57-E655221FB325"
+                double startTime = 0
+                rel target = </Root/Microtubule>
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+        }
+
+        def RealityKitTrack "Track2"
+        {
+            def RealityKitAction "Spin"
+            {
+                string actionKind = "spin"
+                int blendLayer = 600
+                double duration = 6
+                uniform token info:id = "CB92F98F-1FF2-4D7D-BBDF-4A1BB883B4E2"
+                float3 localAxis = (0, 1, 0)
+                float revolutions = 0.005
+                token spinDirection = "counterclockwise"
+                double startTime = 0
+                rel target = </Root/Microtubule>
+                float2 ui:nodegraph:node:pos = (20, 20)
+                int ui:nodegraph:node:stackingOrder = 1
+
+                def RealityKitStruct "timingFunction"
+                {
+                    token type = "easeIn"
+                }
+            }
+        }
+    }
+
+    def RealityKitAudioFile "centrioles_mp3"
+    {
+        uniform asset file = @sons/centrioles.mp3@
+        uniform bool shouldLoop = 0
+    }
+}
+

@@ -18,6 +18,6 @@ struct VisionCellApp: App {
                 }
         }
         .windowStyle(.volumetric)
-//        .defaultSize(width: 1, height: 1.5, depth: 1, in: .meters)
+        .defaultSize(width: 2, height: 2, depth: 2, in: .meters)
     }
 }
