@@ -12,7 +12,7 @@ struct VisionCellApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Rectangle()
                 .onAppear {
                     SoundManager.playInstance.playBackground()
                 }
