@@ -16,50 +16,58 @@ struct ContentView: View {
     var body: some View {
         VStack {
             RealityView { content in
-                // Add the initial RealityKit content
-//                let boxSize = SIMD3<Float>(0.5, 0.1, 0.05)
-//
-//
-//                let modelComponent = ModelComponent(
-//                    mesh: MeshResource.generateBox(size: boxSize),
-//                    materials: [SimpleMaterial(color: .black, roughness: 0.5, isMetallic: false)]
-//                )
-//                let collisionComponent = CollisionComponent(
-//                    shapes: [ShapeResource.generateBox(size: boxSize)]
-//                )
-//                let inputTargetComponent = InputTargetComponent()
-//                let hoverEffectComponent = HoverEffectComponent(.spotlight(
-//                    HoverEffectComponent.SpotlightHoverEffectStyle(
-//                        color: .green, strength: 2.0
-//                    )
-//                ))
-//
-//
-//                let entityA = Entity()
-//                entityA.components.set([modelComponent, collisionComponent, inputTargetComponent, hoverEffectComponent])
-//                content.add(entityA)
                 
                 if let scene = try? await Entity(named: "Cell", in: realityKitContentBundle) {
                     let group = scene.children[0].children.first {
                         $0.name == "Group"
                     }
+                    
                     if let group {
                         for child in group.children {
-                            print(child.name)
+//                            print(child.name)
+                            if child.name == "nucleo" {
+                                let hoverComponent = HoverEffectComponent()
+                                child.components.set(hoverComponent)
+                            }
                             if child.name == "reticuloEndoplasmaticoRugoso" {
+                                let hoverComponent = HoverEffectComponent()
+                                child.components.set(hoverComponent)
+                            }
+                            if child.name == "reticuloEndoplasmaticoLiso" {
+                                let hoverComponent = HoverEffectComponent()
+                                child.components.set(hoverComponent)
+                            }
+                            if child.name == "ribossomos" {
+                                let hoverComponent = HoverEffectComponent()
+                                child.components.set(hoverComponent)
+                            }
+                            if child.name == "complexoGolgi" {
+                                let hoverComponent = HoverEffectComponent()
+                                child.components.set(hoverComponent)
+                            }
+                            if child.name == "lisossomos" {
+                                let hoverComponent = HoverEffectComponent()
+                                child.components.set(hoverComponent)
+                            }
+                            if child.name == "centriolos" {
+                                let hoverComponent = HoverEffectComponent()
+                                child.components.set(hoverComponent)
+                            }
+                            if child.name == "mitocondrias" {
+                                let hoverComponent = HoverEffectComponent()
+                                child.components.set(hoverComponent)
+                            }
+                            if child.name == "vacuolos" {
+                                let hoverComponent = HoverEffectComponent()
+                                child.components.set(hoverComponent)
+                            }
+                            if child.name == "microtubulos" {
                                 let hoverComponent = HoverEffectComponent()
                                 child.components.set(hoverComponent)
                             }
                         }
                     }
                     
-//                    let inputTargetComponent = InputTargetComponent()
-//                    let hoverComponent = HoverEffectComponent(.spotlight(
-//                        HoverEffectComponent.SpotlightHoverEffectStyle(
-//                            color: .green, strength: 2.0
-//                        )
-//                    ))
-//                    scene.components.set([inputTargetComponent, hoverComponent])
                     content.add(scene)
                 }
             } update: { content in

@@ -3,9 +3,7 @@
     "objectMetadataList" : [
       [
         "059A1C85-ECC8-4985-B0FB-673108E24419",
-        "Root",
-        "Golgi_ApparatusComplex",
-        "Materials"
+        "Root"
       ],
       {
         "isExpanded" : true,
@@ -13,7 +11,9 @@
       },
       [
         "059A1C85-ECC8-4985-B0FB-673108E24419",
-        "Root"
+        "Root",
+        "Golgi_ApparatusComplex",
+        "Materials"
       ],
       {
         "isExpanded" : true,
@@ -35,9 +35,10 @@
       [
         "14A36001-1485-440A-8ED5-F7E534595EBC",
         "Root",
-        "Group"
+        "Sphere"
       ],
       {
+        "disallowsFraming" : false,
         "isExpanded" : true,
         "isLocked" : false
       },
@@ -52,10 +53,9 @@
       [
         "14A36001-1485-440A-8ED5-F7E534595EBC",
         "Root",
-        "Sphere"
+        "Group"
       ],
       {
-        "disallowsFraming" : false,
         "isExpanded" : true,
         "isLocked" : false
       }
@@ -119,17 +119,7 @@
       [
         "B1CDA96C-D360-473A-9D1F-343B34EA9EE4",
         "Root",
-        "Timeline",
-        "Track3"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "B1CDA96C-D360-473A-9D1F-343B34EA9EE4",
-        "Root",
-        "lysosome"
+        "Timeline"
       ],
       {
         "isExpanded" : true,
@@ -148,6 +138,26 @@
       [
         "B1CDA96C-D360-473A-9D1F-343B34EA9EE4",
         "Root",
+        "lysosome",
+        "_materials"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "B1CDA96C-D360-473A-9D1F-343B34EA9EE4",
+        "Root",
+        "Timeline",
+        "Track3"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "B1CDA96C-D360-473A-9D1F-343B34EA9EE4",
+        "Root",
         "SkySphere"
       ],
       {
@@ -158,17 +168,7 @@
       [
         "B1CDA96C-D360-473A-9D1F-343B34EA9EE4",
         "Root",
-        "Timeline"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "B1CDA96C-D360-473A-9D1F-343B34EA9EE4",
-        "Root",
-        "lysosome",
-        "_materials"
+        "lysosome"
       ],
       {
         "isExpanded" : true,
@@ -182,7 +182,7 @@
         "B37D3AF7-87A2-434B-9A4A-AA7DFF49F0B3",
         "Root",
         "lysosomeCERTO2",
-        "Lyb_001"
+        "_materials"
       ],
       {
         "isExpanded" : true,
@@ -192,7 +192,7 @@
         "B37D3AF7-87A2-434B-9A4A-AA7DFF49F0B3",
         "Root",
         "lysosomeCERTO2",
-        "_materials"
+        "Lyb_001"
       ],
       {
         "isExpanded" : true,
@@ -221,6 +221,23 @@
     "objectMetadataList" : [
       [
         "BED8F761-560A-4C93-9282-9193D81F98DA",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "BED8F761-560A-4C93-9282-9193D81F98DA",
+        "Root",
+        "AnimationGolgiComplex"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "BED8F761-560A-4C93-9282-9193D81F98DA",
         "Root",
         "golgiComplex",
         "_materials"
@@ -231,7 +248,9 @@
       },
       [
         "BED8F761-560A-4C93-9282-9193D81F98DA",
-        "Root"
+        "Root",
+        "golgiComplex",
+        "BezierCurve_002"
       ],
       {
         "isExpanded" : true,
@@ -251,25 +270,6 @@
         "BED8F761-560A-4C93-9282-9193D81F98DA",
         "Root",
         "Golgi_ApparatusComplex"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "BED8F761-560A-4C93-9282-9193D81F98DA",
-        "Root",
-        "golgiComplex",
-        "BezierCurve_002"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "BED8F761-560A-4C93-9282-9193D81F98DA",
-        "Root",
-        "AnimationGolgiComplex"
       ],
       {
         "isExpanded" : true,
@@ -323,25 +323,6 @@
       [
         "DD5F931A-A8B8-4648-A04C-7632448D7C60",
         "Root",
-        "Vacuole"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "DD5F931A-A8B8-4648-A04C-7632448D7C60",
-        "Root",
-        "Vacuole",
-        "Materials"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "DD5F931A-A8B8-4648-A04C-7632448D7C60",
-        "Root",
         "Timeline",
         "Track3"
       ],
@@ -379,8 +360,27 @@
       [
         "DD5F931A-A8B8-4648-A04C-7632448D7C60",
         "Root",
+        "Vacuole",
+        "Materials"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "DD5F931A-A8B8-4648-A04C-7632448D7C60",
+        "Root",
         "Timeline",
         "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "DD5F931A-A8B8-4648-A04C-7632448D7C60",
+        "Root",
+        "Vacuole"
       ],
       {
         "isExpanded" : true,
@@ -406,7 +406,15 @@
         "F2EEA573-EBC8-422F-8712-0A935BB820C7",
         "Root",
         "Nucleo",
-        "Track5"
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "F2EEA573-EBC8-422F-8712-0A935BB820C7",
+        "Root"
       ],
       {
         "isExpanded" : true,
@@ -426,90 +434,7 @@
         "F2EEA573-EBC8-422F-8712-0A935BB820C7",
         "Root",
         "Nucleo",
-        "Track"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "F2EEA573-EBC8-422F-8712-0A935BB820C7",
-        "Root",
-        "lysosome_2",
-        "env_light"
-      ],
-      {
-        "disallowsFraming" : false,
-        "isExpanded" : false,
-        "isLocked" : false
-      },
-      [
-        "F2EEA573-EBC8-422F-8712-0A935BB820C7",
-        "Root",
-        "lysosome_1",
-        "env_light"
-      ],
-      {
-        "disallowsFraming" : false,
-        "isExpanded" : false,
-        "isLocked" : false
-      },
-      [
-        "F2EEA573-EBC8-422F-8712-0A935BB820C7",
-        "Root",
-        "lysosome",
-        "env_light"
-      ],
-      {
-        "disallowsFraming" : false,
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "F2EEA573-EBC8-422F-8712-0A935BB820C7",
-        "Root",
-        "Montagem",
-        "Vacuole"
-      ],
-      {
-        "disallowsFraming" : false,
-        "isExpanded" : false,
-        "isLocked" : false
-      },
-      [
-        "F2EEA573-EBC8-422F-8712-0A935BB820C7",
-        "Root"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "F2EEA573-EBC8-422F-8712-0A935BB820C7",
-        "Root",
-        "SkyDome"
-      ],
-      {
-        "disallowsFraming" : true,
-        "isExpanded" : false,
-        "isLocked" : false
-      },
-      [
-        "F2EEA573-EBC8-422F-8712-0A935BB820C7",
-        "Root",
-        "Nucleo",
-        "Track3"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "F2EEA573-EBC8-422F-8712-0A935BB820C7",
-        "Root",
-        "lysosome",
-        "Light",
-        "Light"
+        "Track2"
       ],
       {
         "isExpanded" : true,
@@ -530,7 +455,7 @@
         "F2EEA573-EBC8-422F-8712-0A935BB820C7",
         "Root",
         "Nucleo",
-        "Track2"
+        "Track3"
       ],
       {
         "isExpanded" : true,
@@ -539,7 +464,82 @@
       [
         "F2EEA573-EBC8-422F-8712-0A935BB820C7",
         "Root",
+        "Nucleo",
+        "Track5"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "F2EEA573-EBC8-422F-8712-0A935BB820C7",
+        "Root",
+        "lysosome",
+        "Light",
+        "Light"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "F2EEA573-EBC8-422F-8712-0A935BB820C7",
+        "Root",
+        "lysosome_1",
+        "env_light"
+      ],
+      {
+        "disallowsFraming" : false,
+        "isExpanded" : false,
+        "isLocked" : false
+      },
+      [
+        "F2EEA573-EBC8-422F-8712-0A935BB820C7",
+        "Root",
+        "lysosome_2",
+        "env_light"
+      ],
+      {
+        "disallowsFraming" : false,
+        "isExpanded" : false,
+        "isLocked" : false
+      },
+      [
+        "F2EEA573-EBC8-422F-8712-0A935BB820C7",
+        "Root",
+        "lysosome",
+        "env_light"
+      ],
+      {
+        "disallowsFraming" : false,
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "F2EEA573-EBC8-422F-8712-0A935BB820C7",
+        "Root",
         "lysosome"
+      ],
+      {
+        "disallowsFraming" : false,
+        "isExpanded" : false,
+        "isLocked" : false
+      },
+      [
+        "F2EEA573-EBC8-422F-8712-0A935BB820C7",
+        "Root",
+        "SkyDome"
+      ],
+      {
+        "disallowsFraming" : true,
+        "isExpanded" : false,
+        "isLocked" : false
+      },
+      [
+        "F2EEA573-EBC8-422F-8712-0A935BB820C7",
+        "Root",
+        "Montagem",
+        "Vacuole"
       ],
       {
         "disallowsFraming" : false,
@@ -553,44 +553,8 @@
       [
         "FE11DB23-042E-4E5D-8661-F3AA2A2C7CB0",
         "Root",
-        "Microtubule"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "FE11DB23-042E-4E5D-8661-F3AA2A2C7CB0",
-        "Root",
-        "Timeline"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "FE11DB23-042E-4E5D-8661-F3AA2A2C7CB0",
-        "Root"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "FE11DB23-042E-4E5D-8661-F3AA2A2C7CB0",
-        "Root",
         "Timeline",
         "Track2"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "FE11DB23-042E-4E5D-8661-F3AA2A2C7CB0",
-        "Root",
-        "Microtubule",
-        "Materials"
       ],
       {
         "isExpanded" : true,
@@ -609,8 +573,44 @@
       [
         "FE11DB23-042E-4E5D-8661-F3AA2A2C7CB0",
         "Root",
+        "Microtubule"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "FE11DB23-042E-4E5D-8661-F3AA2A2C7CB0",
+        "Root",
+        "Microtubule",
+        "Materials"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "FE11DB23-042E-4E5D-8661-F3AA2A2C7CB0",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "FE11DB23-042E-4E5D-8661-F3AA2A2C7CB0",
+        "Root",
         "Timeline",
         "Track3"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "FE11DB23-042E-4E5D-8661-F3AA2A2C7CB0",
+        "Root",
+        "Timeline"
       ],
       {
         "isExpanded" : true,
